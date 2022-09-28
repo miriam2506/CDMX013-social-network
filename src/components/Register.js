@@ -24,7 +24,7 @@ export const Register = () => {
   buttonBack.textContent = 'Back';
   buttonBack.classList.add('Back');
   title.textContent = 'MangaReads';
-  title.classList.add('create');
+  title.classList.add('title');
   title2.textContent = 'まんが';
   title2.classList.add('title2');
 
