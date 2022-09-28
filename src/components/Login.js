@@ -7,7 +7,8 @@ export const Login = () => {
   const buttonBack = document.createElement('button');
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
-
+  div.classList.add('container-welcome');
+  
   buttonLogin.textContent = 'Login';
   buttonBack.textContent = 'Back';
   title.textContent = 'Login';

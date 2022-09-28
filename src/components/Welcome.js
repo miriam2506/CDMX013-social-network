@@ -6,6 +6,7 @@ export const Welcome = () => {
   const buttonLogin = document.createElement('button');
   const buttonSignUp = document.createElement('button');
 
+  div.classList.add('container-welcome');
   buttonLogin.textContent = 'Sign in';
   buttonSignUp.textContent = 'Sign Up';
   title.textContent = 'red social';
