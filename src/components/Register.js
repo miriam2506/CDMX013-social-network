@@ -17,6 +17,7 @@ export const Register = () => {
 
   inputEmail.classList.add('inputOne');
   inputPassword.classList.add('inputTwo');
+  inputPassword.setAttribute('type', 'password');
   inputConfirm.classList.add('inputThree');
   div.classList.add('container-welcome');
   buttonRegister.textContent = 'Register';
