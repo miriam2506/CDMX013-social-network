@@ -1,3 +1,4 @@
+// import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
 
 export const Login = () => {
@@ -8,11 +9,10 @@ export const Login = () => {
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
   div.classList.add('container-welcome');
-  
+
   buttonLogin.textContent = 'Login';
   buttonBack.textContent = 'Back';
   title.textContent = 'Login';
-
   buttonLogin.addEventListener('click', () => {
     onNavigate('/');
   });
