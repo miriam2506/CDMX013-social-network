@@ -15,7 +15,6 @@ export const Welcome = () => {
   inputPassword.classList.add('inputTwo');
   inputEmail.placeholder = 'email';
   inputPassword.placeholder = 'password';
-  inputPassword.setAttribute('type', 'password');
 
   div.classList.add('container-welcome');
   buttonLogin.textContent = 'Login';
