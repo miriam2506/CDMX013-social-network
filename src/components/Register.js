@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
 
