@@ -118,6 +118,15 @@ button {
     border-top-color: rgb(144, 144, 171);
 }
 
+.google
+{
+position: absolute;
+margin-top: 630px;
+margin-left: -230px;
+height: 50px;
+border-radius: 10px;
+}
+
 /*MAIN VIEW*/
 
 .textIntro{

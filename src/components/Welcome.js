@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { loginGoogle } from '../firebase/auth.js';
 
 export const Welcome = () => {
   const div = document.createElement('div');
@@ -16,6 +17,8 @@ export const Welcome = () => {
   inputEmail.placeholder = 'email';
   inputPassword.placeholder = 'password';
   inputPassword.setAttribute('type', 'password');
+  // const liner = document.createElement('hr');
+  const buttonGoogle = document.createElement('img');
 
   div.classList.add('container-welcome');
   buttonLogin.textContent = 'Login';
@@ -28,6 +31,10 @@ export const Welcome = () => {
   title2.textContent = 'まんが';
   title2.classList.add('title2');
 
+  buttonGoogle.setAttribute('src', './img/btn_google_signin_light_normal_web@2x.png');
+  buttonGoogle.classList.add('google');
+  // liner.classList.add('line');
+
   buttonLogin.addEventListener('click', () => {
     onNavigate('/login');
   });
@@ -35,7 +42,12 @@ export const Welcome = () => {
   buttonSignUp.addEventListener('click', () => {
     onNavigate('/register');
   });
-  div.append(title2, title, inputEmail, inputPassword, buttonLogin, buttonSignUp, textIntro);
+
+  buttonGoogle.addEventListener('click', () => {
+    loginGoogle();
+  });
+
+  div.append(title2, title, inputEmail, inputPassword, buttonLogin, buttonSignUp, textIntro, buttonGoogle);
 
   return div;
 };
