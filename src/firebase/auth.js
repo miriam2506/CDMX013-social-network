@@ -1,5 +1,5 @@
 import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
+  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { app } from './config.js';
 
@@ -29,5 +29,20 @@ export const loginGoogle = () => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
+    });
+};
+
+export const signEmailPassword = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error);
     });
 };
