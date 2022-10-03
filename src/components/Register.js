@@ -11,16 +11,16 @@ export const Register = () => {
   const buttonBack = document.createElement('button');
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
-  const inputConfirm = document.createElement('input');
-  inputEmail.placeholder = 'e-mail';
+  // const inputConfirm = document.createElement('input');
+  inputEmail.placeholder = 'email';
   inputPassword.placeholder = 'password';
-  inputConfirm.placeholder = 'confirm password';
+  // inputConfirm.placeholder = 'confirm password';
 
   inputEmail.classList.add('inputOne');
   inputPassword.classList.add('inputTwo');
   inputPassword.setAttribute('type', 'password');
-  inputConfirm.classList.add('inputThree');
-  inputConfirm.setAttribute('type', 'password');
+  /* inputConfirm.classList.add('inputThree');
+  inputConfirm.setAttribute('type', 'password'); */
   div.classList.add('container-welcome');
   buttonRegister.textContent = 'Register';
   buttonRegister.classList.add('buttonRegister');
@@ -51,7 +51,7 @@ export const Register = () => {
         // ..
       });
   });
-  div.append(title2, title, subtitle, inputEmail, inputPassword, inputConfirm, buttonRegister, buttonBack);
+  div.append(title2, title, subtitle, inputEmail, inputPassword, /* inputConfirm */ buttonRegister, buttonBack);
 
   return div;
 };
