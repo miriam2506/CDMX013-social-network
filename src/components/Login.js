@@ -1,4 +1,4 @@
-//import { saveUser } from '../firebase/auth.js';
+// import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
 
 export const Login = () => {
@@ -35,15 +35,7 @@ export const Login = () => {
     onNavigate('/');
   });
 
-  div.append(
-    title2,
-    title,
-    subtitle1,
-    inputEmail,
-    inputPassword,
-    buttonLogin,
-    buttonBack,
-  );
+  div.append(title2, title, subtitle1, inputEmail, inputPassword, buttonLogin, buttonBack);
 
   return div;
 };

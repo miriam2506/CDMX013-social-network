@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { app } from './config.js';
 

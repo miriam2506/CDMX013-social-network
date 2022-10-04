@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
 
@@ -50,16 +51,7 @@ export const Register = () => {
         // ..
       });
   });
-  div.append(
-    title2,
-    title,
-    subtitle,
-    inputEmail,
-    inputPassword,
-    inputConfirm,
-    buttonRegister,
-    buttonBack,
-  );
+  div.append(title2, title, subtitle, inputEmail, inputPassword, inputConfirm, buttonRegister, buttonBack);
 
   return div;
 };
