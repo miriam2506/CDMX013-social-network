@@ -41,7 +41,7 @@ export const Register = () => {
     saveUser(inputEmail.value, inputPassword.value).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log('ya se creo');
+      // console.log('ya se creo');
       // ...
     })
       .catch((error) => {
