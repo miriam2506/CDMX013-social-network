@@ -1,5 +1,5 @@
 import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
+  getAuth, onAuthStateChanged, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { app } from './config.js';
 
@@ -46,3 +46,5 @@ export const signEmailPassword = (email, password) => {
       console.log(error);
     });
 };
+
+

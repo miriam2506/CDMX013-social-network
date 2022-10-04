@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginGoogle, signEmailPassword} from '../firebase/auth.js';
+import { loginGoogle, signEmailPassword } from '../firebase/auth.js';
 
 export const Welcome = () => {
   const div = document.createElement('div');
@@ -36,9 +36,9 @@ export const Welcome = () => {
   // liner.classList.add('line');
 
   buttonLogin.addEventListener('click', () => {
-//obtener mail y password 
-    let mail= inputEmail.value;
-    let password= inputPassword.value;
+    // obtener mail y password
+    const mail = inputEmail.value;
+    const password = inputPassword.value;
     signEmailPassword(mail, password);
   });
 
@@ -49,8 +49,6 @@ export const Welcome = () => {
   buttonGoogle.addEventListener('click', () => {
     loginGoogle();
   });
-
-
 
   div.append(title2, title, inputEmail, inputPassword, buttonLogin, buttonSignUp, textIntro, buttonGoogle);
 
