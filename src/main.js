@@ -1,13 +1,17 @@
 import { Welcome } from './components/Welcome.js';
-import { Login } from './components/Login.js';
+import { Wall } from './components/Wall.js';
 import { Register } from './components/Register.js';
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+
+const auth = getAuth();
 
 const root = document.getElementById('root');
 
 const routes = {
   '/': Welcome,
-  '/login': Login,
+  '/wall': Wall,
   '/register': Register,
+
 };
 
 export const onNavigate = (pathname) => {
@@ -29,4 +33,17 @@ window.onpopstate = () => {
   root.append(component());
 };
 
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    onNavigate('/wall');
+    console.log(user);
+    // ...
+  } else {
+    onNavigate('/');
+    console.log('me salí');
+    // User is signed out
+    // ...
+  }
+});
 root.appendChild(component());
