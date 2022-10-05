@@ -1,6 +1,6 @@
 // import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
-import { signOutAccount } from '../firebase/auth.js';
+import { signOutAccount, auth } from '../firebase/auth.js';
 
 export const Wall = () => {
   const div = document.createElement('div');
@@ -14,8 +14,7 @@ export const Wall = () => {
 
   buttonSignOut.addEventListener('click', () => {
     //  onNavigate('/'); // Sign-out successful.
-    const auth = getAuth();
-    signOut(auth).then(() => {
+    signOutAccount(auth).then(() => {
       onNavigate('/');
     }).catch((error) => {
       // An error happened.
