@@ -1,7 +1,7 @@
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { Welcome } from './components/Welcome.js';
 import { Wall } from './components/Wall.js';
 import { Register } from './components/Register.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 const auth = getAuth();
 
@@ -32,7 +32,6 @@ window.onpopstate = () => {
   root.removeChild(root.firstChild);
   root.append(component());
 };
-
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
