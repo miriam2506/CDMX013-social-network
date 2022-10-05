@@ -4,7 +4,7 @@ import { onNavigate } from '../main.js';
 
 export const Register = () => {
   const div = document.createElement('div');
-  const title = document.createElement('h2');
+  const title = document.createElement('hc2');
   const title2 = document.createElement('h3');
   const subtitle = document.createElement('h4');
   const buttonRegister = document.createElement('button');
