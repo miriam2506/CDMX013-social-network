@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unresolved */
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-=======
+/* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
+  getAuth, /* onAuthStateChanged, */ createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
->>>>>>> c8ae426a407d7ba764e7ff026d29230f83e44195
 import { app } from './config.js';
 
 const auth = getAuth();
@@ -51,5 +47,3 @@ export const signEmailPassword = (email, password) => {
       console.log(error);
     });
 };
-
-

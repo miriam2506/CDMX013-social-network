@@ -51,3 +51,7 @@ export const Register = () => {
         // ..
       });
   });
+  div.append(title2, title, subtitle, inputEmail, inputPassword, /* inputConfirm */ buttonRegister, buttonBack);
+
+  return div;
+};
