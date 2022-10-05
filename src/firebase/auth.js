@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, /* onAuthStateChanged, */ createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
+  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { app } from './config.js';
 
@@ -47,3 +47,8 @@ export const signEmailPassword = (email, password) => {
       console.log(error);
     });
 };
+<<<<<<< HEAD
+=======
+
+export const signOutAccount = () => signOut(auth);
+>>>>>>> 0e54a4d2e2fe1e92ca952d80586f5d9caa2494e0
