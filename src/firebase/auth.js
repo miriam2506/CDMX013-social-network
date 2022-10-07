@@ -5,6 +5,7 @@ import { app } from './config.js';
 
 export const auth = getAuth();
 
+
 export const saveUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
 export const providerGoogle = new GoogleAuthProvider();
