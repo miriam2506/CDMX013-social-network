@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut
+  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { app } from './config.js';
 
