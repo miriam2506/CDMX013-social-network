@@ -33,6 +33,7 @@ body {
     background-attachment: fixed;
 }
 
+
 .title {
     position: absolute;
     margin-top: 20px;
@@ -164,3 +165,4 @@ border-radius: 10px;
     2px -2px 0 #000,
     -2px -2px 0 #000;
 }
+
