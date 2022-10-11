@@ -2,6 +2,7 @@
 import { onNavigate } from '../main.js';
 import { signOutAccount, auth } from '../firebase/auth.js';
 import { createPost } from './createPost.js';
+import { getPosts } from '../firebase/post.js';
 
 export const Wall = () => {
   const div = document.createElement('div');
@@ -11,6 +12,7 @@ export const Wall = () => {
   const buttonSignOut = document.createElement('button');
   buttonSignOut.textContent = 'Sign Out';
   buttonSignOut.classList.add('Back');
+
   div.classList.add('container-wall');
 
   buttonSignOut.addEventListener('click', () => {
@@ -22,7 +24,9 @@ export const Wall = () => {
     });
   });
 
-  div.append(title, buttonSignOut, createPost());
+  getPosts();
+
+  div.append(title, buttonSignOut, createPost(),);
 
   return div;
 };
