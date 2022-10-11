@@ -12,6 +12,8 @@ export const Wall = () => {
   const buttonSignOut = document.createElement('button');
   buttonSignOut.textContent = 'Sign Out';
   buttonSignOut.classList.add('Back');
+  const containerPost = document.createElement('div');
+  console.log(containerPost);
 
   div.classList.add('container-wall');
 
@@ -24,9 +26,12 @@ export const Wall = () => {
     });
   });
 
-  getPosts();
+  getPosts((posts) => {
+    posts.forEach((post) => { containerPost.textContent = post.data().message; });
+    // console.log(posts.data());
+  });
 
-  div.append(title, buttonSignOut, createPost(),);
+  div.append(title, buttonSignOut, containerPost, createPost());
 
   return div;
 };
