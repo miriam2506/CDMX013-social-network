@@ -6,7 +6,7 @@ import { getPosts } from '../firebase/post.js';
 
 export const Wall = () => {
   const div = document.createElement('div'); // Contenedor principal
-  div.classList.add('container-wall');
+  div.classList.add('containerWall');
 
   const titleW = document.createElement('h2');
   titleW.textContent = 'MangaReads';
@@ -17,7 +17,7 @@ export const Wall = () => {
   title2W.classList.add('title2W');
 
   const textIntroW = document.createElement('h4');
-  textIntroW.textContent = 'Write your post';
+  textIntroW.textContent = 'What´s up!';
   textIntroW.classList.add('textIntroW');
 
   const buttonSignOut = document.createElement('button');
