@@ -7,21 +7,22 @@
 
 html,
 body {
+
+    background-color: #1E1E1E;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    display: flex;
 }
 
 #root {
-    background: #1E1E1E;
+
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
 }
-
+   
 .container-welcome {
     position: absolute;
     margin: 0;
@@ -34,7 +35,6 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
-
 
 .title {
     position: absolute;
@@ -66,109 +66,25 @@ body {
 
 .subtitle {
     position: absolute;
-    margin-top: 180px;
-    margin-left: 60px;
-    color: white;
-    text-shadow: 50px black;
-    font-size: 22px;
-    text-align: center;
-    text-shadow: -2px 2px 0 #000,
-        2px 2px 0 #000,
-        2px -2px 0 #000,
-        -2px -2px 0 #000;
-}
-
-.subtitle1 {
-    position: absolute;
-    margin-top: 180px;
-    margin-left: 150px;
-    color: white;
-    text-shadow: 50px black;
-    font-size: 22px;
-    text-align: center;
-    text-shadow: -2px 2px 0 #000,
-        2px 2px 0 #000,
-        2px -2px 0 #000,
-        -2px -2px 0 #000;
-
-}
-
-.inputOne {
-    position: absolute;
-    margin-top: 330px;
+    margin-top: 200px;
     margin-left: 60px;
     border-radius: 8px;
     border-bottom: 15px;
-    border-top-color: rgb(0, 0, 0);
-    font-size: 20px;
-    text-align: center;
-    border: 3px solid rgb(0, 0, 0);
-
-}
-
-.inputTwo {
-    position: absolute;
-    margin-top: 390px;
-    margin-left: 60px;
-    border-radius: 8px;
-    border-top-color: rgb(0, 0, 0);
-    font-size: 20px;
-    text-align: center;
-    border: 3px solid rgb(0, 0, 0);
-}
-
-.inputThree {
-    position: absolute;
-    margin-top: 450px;
-    margin-left: 60px;
-    border-radius: 8px;
-    border-top-color: rgb(0, 0, 0);
-    font-size: 20px;
-    text-align: center;
-    border: 3px solid rgb(0, 0, 0);
-}
-
-.buttonW {
-    position: relative;
-    font-size: 20px;
-    text-align: center;
     color: white;
-    padding: 6px;
-    margin-top: 500px;
-    margin-left: 65px;
-    border-radius: 8px;
-    background-color: rgb(26, 26, 92);
-    border: 2px solid rgb(144, 144, 171);
-}
-
-.buttonL {
-    position: relative;
-    font-size: 20px;
+    /* border-top-color: rgb(5, 5, 5);*/
+    font-size: 22px;
     text-align: center;
-    color: white;
-    padding: 6px;
-    margin-top: 480px;
-    margin-left: 150px;
-    border-radius: 8px;
-    background-color: rgb(26, 26, 92);
-    border: 2px solid rgb(144, 144, 171);
+    text-shadow: -2px 2px 0 #000,
+        2px 2px 0 #000,
+        2px -2px 0 #000,
+        -2px -2px 0 #000;
 }
-
-.google {
-    position: absolute;
-    margin-top: 10px;
     
-    margin-left: 70px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-/*MAIN VIEW*/
 
 .textIntro {
     position: absolute;
-    margin-top: -400px;
-    margin-left: 6px;
+    margin-top: 150px;
+    margin-left: 16px;
     border-radius: 8px;
     border-bottom: 15px;
     color: white;
@@ -181,9 +97,124 @@ body {
         -2px -2px 0 #000;
 }
 
+
+.inputOne {
+    position: absolute;
+    margin-top: 320px;
+    margin-left: 60px;
+    border-radius: 8px;
+    border-bottom: 15px;
+    border-top-color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+
+}
+
+.inputTwo {
+    position: absolute;
+    margin-top: 380px;
+    margin-left: 60px;
+    border-radius: 8px;
+    border-top-color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.inputOneE {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 60px;
+    border-radius: 8px;
+    border-bottom: 15px;
+    border-top-color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+
+}
+
+.inputTwoP {
+    position: absolute;
+    margin-top: 360px;
+    margin-left: 60px;
+    border-radius: 8px;
+    border-top-color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.buttonS {
+    position: absolute;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    padding: 6px;
+    margin-top: 10px;
+    margin-left: 280px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
+}
+
+.buttonL {
+    position: absolute;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    padding: 6px;
+    margin-top: 450px;
+    margin-left: 150px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
+}
+
+.buttonB {
+    position: absolute;
+      font-size: 20px;
+    text-align: center;
+    color: white;
+    padding: 6px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    margin-top: 500px;
+    margin-left: 55px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
+}
+
+.buttonR {
+    position: absolute;
+      font-size: 20px;
+    text-align: center;
+    color: white;
+    padding: 6px;
+    margin-top: 500px;
+    margin-left: 195px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
+}
+
+
+.google {
+    position: absolute;
+    margin-top: 595px;
+    margin-left: 70px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+/*MAIN VIEW*/
+
+
 .liner1 {
     position: absolute;
-    margin-top: -15px;
+    margin-top: 545px;
     margin-left: 45px;
     width: 90px;
     
@@ -192,15 +223,17 @@ body {
 
 .liner2 {
     position: absolute;
-    margin-top: -15px;
+    margin-top: 545px;
     width: 90px;
     margin-left: 220px;;
     border: 1px solid #FFFFFF;
 }
 .textLogInOr {
+    position: absolute;
+    margin-top: 535px;
+    margin-left: 176px;
     font-weight: bolder;
     color: white;
-    text-align: center;
     text-shadow: -2px 2px 0 #000,
         2px 2px 0 #000,
         2px -2px 0 #000,
@@ -211,8 +244,8 @@ body {
     position: absolute;
     font-weight: bolder;
     color: white;
-    margin-left: 45px;
-    margin-top: 85px;
+    margin-left: 50px;
+    margin-top: 680px;
     text-shadow: -2px 2px 0 #000,
         2px 2px 0 #000,
         2px -2px 0 #000,
@@ -221,8 +254,8 @@ body {
 
 .span {
     position: absolute; 
-    margin-top: 85px;
-    margin-left: 230px;
+    margin-top: 680px;
+    margin-left: 240px;
     color: rgb(26, 26, 92);
     font-weight: bolder;
     text-decoration: underline;
@@ -236,32 +269,106 @@ body {
 }
 
 /*VISTA DE MURO*/
-.container-wall {
+
+.containerWall {
+
     background: #1E1E1E;
     margin: auto;
+    
 }
 
-h2.MangaReads {
+.WallView {
+    color: aliceblue;
+    display: flex;
+    padding: 23px;
+        width: 270px;
+        margin-top: 20px;
+        margin-left: 2px;
+    border-radius: 8px;
+    border-top-color: rgb(220, 217, 217);
+    font-size: 20px;
+    border: 2px solid rgb(220, 217, 217);
+ 
+}
+
+.container {
+    position: absolute;
+        margin-top:  220px;
+        margin-left: 15px;
+        width: 100%;
+        height: 100%;
+
+ 
+
+ }
+
+.write {
+    position: absolute;
+    background-color: aliceblue;
+    margin-top: 170px;
+    margin-left: 20px;
+    border-radius: 8px;
+    border-bottom: 15px;
+    padding: 10px;
+    border-top-color: rgb(0, 0, 0);
+    font-size: 17px;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+
+}
+
+.titleW {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px;
     font-family: 'Bungee', cursive;
-    color: #FFFFFF;
+    color: white;
+    /* -webkit-text-stroke: 2px black;*/
+    font-size: 47px;
+    text-align: center;
     text-shadow: -3px 3px 0 #000,
         3px 3px 0 #000,
         3px -3px 0 #000,
         -2px -2px 0 #000;
-    margin-left: 20px;
-    margin-top: 20px;
 }
 
-button.Back {
-    margin-left: 250px;
+.title2W {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: 'DotGothic16', sans-serif;
+    color: white;
+    text-shadow: -2px 2px 0 #000,
+        3px 3px 0 #000,
+        3px -3px 0 #000,
+        -2px -2px 0 #000;
 }
 
-p {
-    color: #FFFFFF;
+.textIntroW {
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 120px;
+    border-radius: 8px;
+    border-bottom: 15px;
+    color: white;
+    /* border-top-color: rgb(5, 5, 5);*/
+    font-size: 22px;
+    text-align: center;
+    text-shadow: -2px 2px 0 #000,
+        2px 2px 0 #000,
+        2px -2px 0 #000,
+        -2px -2px 0 #000;
 }
 
-.postContent{
-    display: flex;
-    border-radius: 15px;
-    border-color: 1px solid white;
+.send {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 180px;
+    margin-left: 270px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
 }

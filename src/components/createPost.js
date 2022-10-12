@@ -6,6 +6,9 @@ export const createPost = () => {
   const send = document.createElement('button');
   send.textContent = 'send';
   send.classList.add('send');
+  input.classList.add('write');
+  input.placeholder = 'Write your post';
+
 
   send.addEventListener('click', () => {
     savePost(input.value);
