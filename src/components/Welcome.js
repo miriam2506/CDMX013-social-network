@@ -20,11 +20,7 @@ export const Welcome = () => {
 
   const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Login';
-  buttonLogin.classList.add('buttonLogin');
-
-  const buttonSignUp = document.createElement('button');
-  buttonSignUp.textContent = 'Sign Up';
-  buttonSignUp.classList.add('buttonRegister');
+  buttonLogin.classList.add('buttonL');
 
   const inputEmail = document.createElement('input');
   inputEmail.classList.add('inputOne');
@@ -35,21 +31,24 @@ export const Welcome = () => {
   inputPassword.placeholder = 'password';
   inputPassword.setAttribute('type', 'password');
 
-  const liner = document.createElement('hr');
-  liner.classList = ('liner');
+  const liner1 = document.createElement('hr');
+  liner1.classList = ('liner1');
+  const liner2 = document.createElement('hr');
+  liner2.classList = ('liner2');
 
   const buttonGoogle = document.createElement('img');
   buttonGoogle.setAttribute('src', './img/btn_google_signin_light_normal_web@2x.png');
   buttonGoogle.classList.add('google');
 
   const sectionDivision = document.createElement('p');
-  sectionDivision.classList.add('textLogInBox');
+  sectionDivision.classList.add('textLogInOr');
   sectionDivision.innerHTML = 'Or';
 
   const sectionSingUpText = document.createElement('p');
   sectionSingUpText.classList.add('textLogInBox');
   sectionSingUpText.innerHTML = "Don't have an account?";
   const sectionSpanParr = document.createElement('span');
+  sectionSpanParr.classList.add('span');
   sectionSpanParr.innerHTML = 'Sign Up!';
 
   // Funcionalidad de botones
@@ -60,7 +59,8 @@ export const Welcome = () => {
     signEmailPassword(mail, password);
   });
 
-  buttonSignUp.addEventListener('click', () => {
+  
+sectionSpanParr.addEventListener('click', () => {
     onNavigate('/register');
   });
 
@@ -68,7 +68,7 @@ export const Welcome = () => {
     loginGoogle();
   });
 
-  div.append(title2, title, inputEmail, inputPassword, buttonLogin, buttonSignUp, textIntro, sectionDivision, sectionSingUpText, sectionSpanParr, liner, buttonGoogle);
+  div.append(title2, title, inputEmail, inputPassword, buttonLogin, textIntro, sectionDivision, sectionSingUpText, sectionSpanParr, liner1, liner2, buttonGoogle);
 
   return div;
 };
