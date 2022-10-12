@@ -128,12 +128,27 @@ body {
     border: 3px solid rgb(0, 0, 0);
 }
 
-button {
+.buttonW {
+    position: relative;
     font-size: 20px;
     text-align: center;
     color: white;
     padding: 6px;
+    margin-top: 500px;
     margin-left: 65px;
+    border-radius: 8px;
+    background-color: rgb(26, 26, 92);
+    border: 2px solid rgb(144, 144, 171);
+}
+
+.buttonL {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    padding: 6px;
+    margin-top: 480px;
+    margin-left: 150px;
     border-radius: 8px;
     background-color: rgb(26, 26, 92);
     border: 2px solid rgb(144, 144, 171);
@@ -141,8 +156,9 @@ button {
 
 .google {
     position: absolute;
-    margin-top: 30px;
-    margin-left: 30px;
+    margin-top: 10px;
+    
+    margin-left: 70px;
     height: 50px;
     border-radius: 10px;
 }
@@ -165,14 +181,23 @@ button {
         -2px -2px 0 #000;
 }
 
-.liner {
+.liner1 {
     position: absolute;
-    width: 313px;
-    height: 0px;
-    border: 2px solid #FFFFFF;
+    margin-top: -15px;
+    margin-left: 45px;
+    width: 90px;
+    
+    border: 1px solid #FFFFFF;
 }
 
-.textLogInBox {
+.liner2 {
+    position: absolute;
+    margin-top: -15px;
+    width: 90px;
+    margin-left: 220px;;
+    border: 1px solid #FFFFFF;
+}
+.textLogInOr {
     font-weight: bolder;
     color: white;
     text-align: center;
@@ -182,11 +207,32 @@ button {
         -2px -2px 0 #000;
 }
 
-span {
+.textLogInBox {
+    position: absolute;
+    font-weight: bolder;
+    color: white;
+    margin-left: 45px;
+    margin-top: 85px;
+    text-shadow: -2px 2px 0 #000,
+        2px 2px 0 #000,
+        2px -2px 0 #000,
+        -2px -2px 0 #000;
+}
+
+.span {
+    position: absolute; 
+    margin-top: 85px;
+    margin-left: 230px;
     color: rgb(26, 26, 92);
     font-weight: bolder;
-    margin-left: 3px;
     text-decoration: underline;
+    text-shadow: -1px 1px 0 rgb(255, 255, 255),
+    1px 1px 0 rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255),
+    -1px -1px 0 rgb(255, 255, 255);
+
+    
+    
 }
 
 /*VISTA DE MURO*/
