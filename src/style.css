@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=DotGothic16&family=Mulish:wght@400&display=swap');
 
 * {
-    margin: 8px;
+    margin: 0px;
     font-family: 'Mulish', sans-serif;
 }
 
@@ -11,9 +11,11 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
+    display: flex;
 }
 
 #root {
+    background: #1E1E1E;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -188,6 +190,32 @@ span {
 }
 
 /*VISTA DE MURO*/
-.WallView {
- 
+.container-wall {
+    background: #1E1E1E;
+    margin: auto;
+}
+
+h2.MangaReads {
+    font-family: 'Bungee', cursive;
+    color: #FFFFFF;
+    text-shadow: -3px 3px 0 #000,
+        3px 3px 0 #000,
+        3px -3px 0 #000,
+        -2px -2px 0 #000;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+button.Back {
+    margin-left: 250px;
+}
+
+p {
+    color: #FFFFFF;
+}
+
+.postContent{
+    display: flex;
+    border-radius: 15px;
+    border-color: 1px solid white;
 }
