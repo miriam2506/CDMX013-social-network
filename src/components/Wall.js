@@ -13,7 +13,6 @@ export const Wall = () => {
   buttonSignOut.textContent = 'Sign Out';
   buttonSignOut.classList.add('Back');
   const containerPost = document.createElement('div');
-  console.log(containerPost);
 
   div.classList.add('container-wall');
 
@@ -27,8 +26,16 @@ export const Wall = () => {
   });
 
   getPosts((posts) => {
-    posts.forEach((post) => { containerPost.textContent = post.data().message; });
-    // console.log(posts.data());
+    containerPost.innerHTML = '';
+    posts.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+      const post = doc.data();
+      const postContent = document.createElement('p');
+      postContent.textContent = post.message;
+      postContent.classList.add = 'WallView';
+      console.log(post);
+      containerPost.append(postContent);
+    });
   });
 
   div.append(title, buttonSignOut, containerPost, createPost());
