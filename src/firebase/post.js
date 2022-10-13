@@ -21,11 +21,7 @@ export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'post', id));
 };
 
-export const editPost = async (id, titleP, textPost) => {
+export const editPost = async (id, post) => {
   const postRef = (doc(db, 'post', id));
-  await updateDoc(postRef, {
-    title: titleP,
-    message: textPost,
-
-  });
+  await updateDoc(postRef, post);
 };

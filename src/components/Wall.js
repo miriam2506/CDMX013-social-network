@@ -42,7 +42,8 @@ export const Wall = () => {
       const div = document.createElement('div');
       const titleT = document.createElement('h4');
       titleT.textContent = post.title;
-      const postContent = document.createElement('p');
+      const postContent = document.createElement('textarea');
+ postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
       postContent.classList.add('WallView');
       containerPost.classList.add('container');
@@ -58,12 +59,16 @@ export const Wall = () => {
       deletePosts.addEventListener('click', async () => {
         await deletePost(doc.id);
       });
+      
       const edit = document.createElement('button');
-
       edit.textContent = 'edit';
       edit.classList.add = 'buttonEd';
-      edit.addEventListener('click', async () => {
-        await editPost(doc.id, post);
+      edit.addEventListener('click', () => {
+        console.log(doc.id, post);
+        postContent.removeAttribute('readonly');
+
+        //await editPost(doc.id, post);
+       // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
       });
 
       containerPost.append(titleT, postContent, deletePosts, edit);

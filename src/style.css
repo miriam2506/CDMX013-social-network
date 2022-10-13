@@ -278,7 +278,7 @@ body {
 }
 
 .WallView {
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     display: flex;
     padding: 23px;
         width: 270px;
