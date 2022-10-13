@@ -2,7 +2,7 @@
 import { onNavigate } from '../main.js';
 import { signOutAccount, auth } from '../firebase/auth.js';
 import { createPost } from './createPost.js';
-import { getPosts } from '../firebase/post.js';
+import { getPosts, deletePost, editPost } from '../firebase/post.js';
 
 export const Wall = () => {
   const div = document.createElement('div'); // Contenedor principal
@@ -38,12 +38,40 @@ export const Wall = () => {
     posts.forEach((doc) => {
       console.log(doc.id, '=>', doc.data());
       const post = doc.data();
-      const postContent = document.createElement('p');
+      // creo que aquí va lo de div, pero entonces me confundí con el conteinerPost, no sería lo mismo?
+      const div = document.createElement('div');
+      const titleT = document.createElement('h4');
+      titleT.textContent = post.title;
+      const postContent = document.createElement('textarea');
+ postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
-      postContent.classList.add ('WallView');
-      containerPost.classList.add ('container');
+      postContent.classList.add('WallView');
+      containerPost.classList.add('container');
+
+      // aquí se une o más abajo?
+      div.append(titleT, postContent);
+
       console.log(post);
-      containerPost.append(postContent);
+
+      const deletePosts = document.createElement('button');
+      deletePosts.textContent = 'delete';
+      deletePosts.classList.add = 'buttonD';
+      deletePosts.addEventListener('click', async () => {
+        await deletePost(doc.id);
+      });
+      
+      const edit = document.createElement('button');
+      edit.textContent = 'edit';
+      edit.classList.add = 'buttonEd';
+      edit.addEventListener('click', () => {
+        console.log(doc.id, post);
+        postContent.removeAttribute('readonly');
+
+        //await editPost(doc.id, post);
+       // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+      });
+
+      containerPost.append(titleT, postContent, deletePosts, edit);
     });
   });
 
