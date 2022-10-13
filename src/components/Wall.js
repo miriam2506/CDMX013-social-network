@@ -39,17 +39,17 @@ export const Wall = () => {
       console.log(doc.id, '=>', doc.data());
       const post = doc.data();
       // creo que aquí va lo de div, pero entonces me confundí con el conteinerPost, no sería lo mismo?
-      const div = document.createElement('div');
+      const div1 = document.createElement('div');
       const titleT = document.createElement('h4');
       titleT.textContent = post.title;
       const postContent = document.createElement('textarea');
- postContent.setAttribute('readonly', true);
+      postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
       postContent.classList.add('WallView');
       containerPost.classList.add('container');
 
       // aquí se une o más abajo?
-      div.append(titleT, postContent);
+      div1.append(titleT, postContent);
 
       console.log(post);
 
@@ -66,9 +66,8 @@ export const Wall = () => {
       edit.addEventListener('click', () => {
         console.log(doc.id, post);
         postContent.removeAttribute('readonly');
-
-        //await editPost(doc.id, post);
-       // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+        // await editPost(doc.id, post);
+        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
       });
 
       containerPost.append(titleT, postContent, deletePosts, edit);
