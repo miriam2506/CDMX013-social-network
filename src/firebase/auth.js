@@ -6,6 +6,7 @@ import { app } from './config.js';
 
 export const auth = getAuth();
 
+export const user = auth.currentUser;
 
 export const saveUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -14,15 +15,15 @@ export const providerGoogle = new GoogleAuthProvider();
 export const loginGoogle = () => {
   signInWithPopup(auth, providerGoogle)
     .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
+      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
       console.log(user.email);
-    // ...
+      // ...
     }).catch((error) => {
-    // Handle Errors here.
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
 
@@ -30,7 +31,7 @@ export const loginGoogle = () => {
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+      // ...
     });
 };
 

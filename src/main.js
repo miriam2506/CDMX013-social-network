@@ -45,4 +45,5 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });
+
 root.appendChild(component());
