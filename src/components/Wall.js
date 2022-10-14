@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // import { saveUser } from '../firebase/auth.js';
 import { onNavigate } from '../main.js';
 import { signOutAccount, auth } from '../firebase/auth.js';
@@ -17,7 +18,7 @@ export const Wall = () => {
   title2W.classList.add('title2W');
 
   const textIntroW = document.createElement('h4');
-  textIntroW.textContent = 'What´s up!';
+  textIntroW.textContent = 'What is up!';
   textIntroW.classList.add('textIntroW');
 
   const buttonSignOut = document.createElement('button');
@@ -40,12 +41,14 @@ export const Wall = () => {
       const post = doc.data();
       // creo que aquí va lo de div, pero entonces me confundí con el conteinerPost, no sería lo mismo?
       const div1 = document.createElement('div');
-      const titleT = document.createElement('h4');
+      const titleT = document.createElement('textarea');
+      titleT.setAttribute('readonly', true);
       titleT.textContent = post.title;
+      titleT.classList.add('titleT');
       const postContent = document.createElement('textarea');
       postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
-      postContent.classList.add('WallView');
+      postContent.classList.add('PostView');
       containerPost.classList.add('container');
 
       // aquí se une o más abajo?
@@ -59,13 +62,14 @@ export const Wall = () => {
       deletePosts.addEventListener('click', async () => {
         await deletePost(doc.id);
       });
-      
+
       const edit = document.createElement('button');
       edit.textContent = 'edit';
       edit.classList.add = 'buttonEd';
       edit.addEventListener('click', () => {
         console.log(doc.id, post);
         postContent.removeAttribute('readonly');
+        titleT.removeAttribute('readonly');
         // await editPost(doc.id, post);
         // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
       });
