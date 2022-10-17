@@ -5,10 +5,11 @@ import { app } from './config.js';
 
 const db = getFirestore(app);
 
-export const savePost = async (titleP, textPost) => {
+export const savePost = async (titleP, textPost, uid) => {
   const docRef = await addDoc(collection(db, 'post'), {
     title: titleP,
     message: textPost,
+    uid,
   });
   console.log('Document written with ID: ', docRef.id);
 };
@@ -21,7 +22,10 @@ export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'post', id));
 };
 
-export const editPost = async (id, post) => {
+export const editPost = (id, textContent, titleContent) => {
   const postRef = (doc(db, 'post', id));
-  await updateDoc(postRef, post);
+  updateDoc(postRef, {
+    message: textContent,
+    title: titleContent,
+  });
 };

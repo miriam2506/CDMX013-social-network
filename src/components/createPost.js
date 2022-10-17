@@ -1,4 +1,6 @@
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { savePost } from '../firebase/post.js';
+const auth = getAuth();
 
 export const createPost = () => {
   const div = document.createElement('div');
@@ -11,11 +13,14 @@ export const createPost = () => {
   input.placeholder = 'Write your post';
   inputT.classList.add('writeT');
   inputT.placeholder = 'Title';
-
-
-  send.addEventListener('click', () => {
-    savePost(inputT.value, input.value);
-    console.log(input.value);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user);
+      send.addEventListener('click', () => {
+        savePost(inputT.value, input.value, user.uid);
+        console.log(input.value);
+      });
+    }
   });
 
   div.append(input, send, inputT);

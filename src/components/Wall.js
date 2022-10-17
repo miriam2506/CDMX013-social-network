@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 // import { saveUser } from '../firebase/auth.js';
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { signOutAccount, auth } from '../firebase/auth.js';
+import { signOutAccount, auth, user } from '../firebase/auth.js';
 import { createPost } from './createPost.js';
 import { getPosts, deletePost, editPost } from '../firebase/post.js';
 
@@ -52,29 +53,35 @@ export const Wall = () => {
       containerPost.classList.add('container');
 
       // aquí se une o más abajo?
-      div1.append(titleT, postContent);
+      containerPost.append(titleT, postContent);
 
       console.log(post);
 
-      const deletePosts = document.createElement('button');
-      deletePosts.textContent = 'delete';
-      deletePosts.classList.add = 'buttonD';
-      deletePosts.addEventListener('click', async () => {
-        await deletePost(doc.id);
-      });
+      if (auth.currentUser.uid === post.uid) {
+        const edit = document.createElement('button');
+        edit.textContent = 'edit';
+        edit.classList.add = 'buttonEd';
 
-      const edit = document.createElement('button');
-      edit.textContent = 'edit';
-      edit.classList.add = 'buttonEd';
-      edit.addEventListener('click', () => {
-        console.log(doc.id, post);
-        postContent.removeAttribute('readonly');
-        titleT.removeAttribute('readonly');
-        // await editPost(doc.id, post);
+        edit.addEventListener('click', () => {
+          console.log('USER:', auth.currentUser.uid);
+          console.log(doc.id, post);
+          postContent.removeAttribute('readonly');
+          titleT.removeAttribute('readonly');
+          //          editPost(doc.id, 'hola', 'adiós');
         // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
-      });
+        });
+        containerPost.append(edit);
+      }
+      if (auth.currentUser.uid === post.uid) {
+        const deletePosts = document.createElement('button');
+        deletePosts.textContent = 'delete';
+        deletePosts.classList.add = 'buttonD';
 
-      containerPost.append(titleT, postContent, deletePosts, edit);
+        deletePosts.addEventListener('click', async () => {
+          await deletePost(doc.id);
+        });
+        containerPost.append(deletePosts);
+      }
     });
   });
 
