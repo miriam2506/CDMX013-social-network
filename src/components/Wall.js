@@ -53,23 +53,25 @@ export const Wall = () => {
       containerPost.classList.add('container');
 
       // aquí se une o más abajo?
-      div1.append(titleT, postContent);
+      containerPost.append(titleT, postContent);
 
       console.log(post);
 
-      const edit = document.createElement('button');
-      edit.textContent = 'edit';
-      edit.classList.add = 'buttonEd';
-      edit.addEventListener('click', () => {
-        console.log('USER:', auth.currentUser.uid);
-        console.log(doc.id, post);
-        postContent.removeAttribute('readonly');
-        titleT.removeAttribute('readonly');
-        // await editPost(doc.id, post);
-        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
-      });
+      if (auth.currentUser.uid === post.uid) {
+        const edit = document.createElement('button');
+        edit.textContent = 'edit';
+        edit.classList.add = 'buttonEd';
 
-      containerPost.append(titleT, postContent, edit);
+        edit.addEventListener('click', () => {
+          console.log('USER:', auth.currentUser.uid);
+          console.log(doc.id, post);
+          postContent.removeAttribute('readonly');
+          titleT.removeAttribute('readonly');
+          //          editPost(doc.id, 'hola', 'adiós');
+        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+        });
+        containerPost.append(edit);
+      }
       if (auth.currentUser.uid === post.uid) {
         const deletePosts = document.createElement('button');
         deletePosts.textContent = 'delete';

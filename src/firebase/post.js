@@ -2,6 +2,7 @@ import {
   collection, addDoc, getFirestore, onSnapshot, doc, deleteDoc, updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 import { app } from './config.js';
+
 const db = getFirestore(app);
 
 export const savePost = async (titleP, textPost, uid) => {
@@ -21,7 +22,10 @@ export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'post', id));
 };
 
-export const editPost = async (id, post) => {
+export const editPost = (id, textContent, titleContent) => {
   const postRef = (doc(db, 'post', id));
-  await updateDoc(postRef, post);
+  updateDoc(postRef, {
+    message: textContent,
+    title: titleContent,
+  });
 };
