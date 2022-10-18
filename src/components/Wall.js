@@ -62,32 +62,53 @@ export const Wall = () => {
         edit.src = './img/outline_edit_white_24dp.png';
         edit.classList.add = 'buttonEd';
 
-        edit.addEventListener('click', () => {
-          console.log('USER:', auth.currentUser.uid);
-          console.log(doc.id, post);
-          postContent.removeAttribute('readonly');
-          titleT.removeAttribute('readonly');
-          //          editPost(doc.id, 'hola', 'adiós');
-          // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
-          const saveEditButton = document.createElement('button');
-          saveEditButton.setAttribute('class', 'saveEdition');
-          saveEditButton.innerHTML = 'Save';
-          const cancelEditButton = document.createElement('button');
-          cancelEditButton.setAttribute('class', 'cancelEdition');
-          cancelEditButton.innerHTML = 'Cancel';
-        });
-        containerPost.append(edit);
-      }
-      if (auth.currentUser.uid === post.uid) {
         const deletePosts = document.createElement('img');
         deletePosts.src = './img/outline_delete_white_24dp.png';
         deletePosts.classList.add = 'buttonD';
+        containerPost.append(edit, deletePosts);
+        edit.addEventListener('click', () => {
+          const saveEditButton = document.createElement('button');
+          saveEditButton.classList.add = 'buttonSave';
+          saveEditButton.textContent = 'Save';
 
+          const cancelEditButton = document.createElement('button');
+          cancelEditButton.classList.add = 'buttonCancel';
+          cancelEditButton.textContent = 'Cancel';
+
+          containerPost.append(saveEditButton, cancelEditButton);
+
+          postContent.classList.add('redit');
+          titleT.classList.add('redit');
+
+          console.log('USER:', auth.currentUser.uid);
+          console.log(doc.id, post);
+
+          postContent.removeAttribute('readonly');
+          titleT.removeAttribute('readonly');
+          edit.style.display = 'none';
+          deletePosts.style.display = 'none';
+
+          saveEditButton.addEventListener('click', () => {
+            containerPost.append(edit);
+            containerPost.append(deletePosts);
+            editPost(doc.id, postContent.value, titleT.value);
+          });
+
+          cancelEditButton.addEventListener('click', async () => {
+            containerPost.append(edit);
+            containerPost.append(deletePosts);
+            editPost(doc.id, postContent.value, titleT.value);
+          });
+          // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+        });
         deletePosts.addEventListener('click', async () => {
           await deletePost(doc.id);
-        });
-        containerPost.append(deletePosts);
+        }); //
       }
+
+      /* edit.addEventListener('click', () => {
+        deletePosts.style.display = 'none';
+      }); */
     });
   });
 
