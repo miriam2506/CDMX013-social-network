@@ -56,35 +56,25 @@ export const Wall = () => {
       containerPost.append(titleT, postContent);
 
       console.log(post);
-      // si el user id es el mismo del post primero cuando le de click en editar, se pintará más claro.
+
       if (auth.currentUser.uid === post.uid) {
         const edit = document.createElement('button');
         edit.textContent = 'edit';
         edit.classList.add = 'buttonEd';
 
         edit.addEventListener('click', () => {
-          containerPost.classList.add = ('redit');
-          // titleT.classList.add = 'redit';
-
-          //console.log('USER:', auth.currentUser.uid);
-          //console.log(doc.id, post);
+          postContent.classList.add ('redit');
+          titleT.classList.add ('redit');
+          console.log('USER:', auth.currentUser.uid);
+          console.log(doc.id, post);
           postContent.removeAttribute('readonly');
           titleT.removeAttribute('readonly');
-          editPost(doc.id, , 'adiós');
+          //          editPost(doc.id, 'hola', 'adiós');
+        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
         });
         containerPost.append(edit);
-
-        //  const save = document.createElement('button');
-        // save.textContent = 'Save';
-        // save.classList.add = 'buttonS';
-
-        // save.addEventListener('click', () => {
-        //  });
-        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
-        // });
       }
-
-      /*      if (auth.currentUser.uid === post.uid) {
+      if (auth.currentUser.uid === post.uid) {
         const deletePosts = document.createElement('button');
         deletePosts.textContent = 'delete';
         deletePosts.classList.add = 'buttonD';
@@ -93,7 +83,7 @@ export const Wall = () => {
           await deletePost(doc.id);
         });
         containerPost.append(deletePosts);
-      } */
+      }
     });
   });
 
