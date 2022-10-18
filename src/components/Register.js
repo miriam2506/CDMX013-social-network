@@ -16,18 +16,18 @@ export const Register = () => {
   inputPassword.placeholder = 'password';
   // inputConfirm.placeholder = 'confirm password';
 
-  inputEmail.classList.add('inputOne');
-  inputPassword.classList.add('inputTwo');
+  inputEmail.classList.add('inputOneE');
+  inputPassword.classList.add('inputTwoP');
   inputPassword.setAttribute('type', 'password');
   /* inputConfirm.classList.add('inputThree');
   inputConfirm.setAttribute('type', 'password'); */
   div.classList.add('container-welcome');
   buttonRegister.textContent = 'Register';
-  buttonRegister.classList.add('buttonRegister');
+  buttonRegister.classList.add('buttonR');
   subtitle.textContent = 'CREATE AN ACCOUNT';
   subtitle.classList.add('subtitle');
   buttonBack.textContent = 'Back';
-  buttonBack.classList.add('Back');
+  buttonBack.classList.add('buttonB');
   title.textContent = 'MangaReads';
   title.classList.add('title');
   title2.textContent = 'まんが';
