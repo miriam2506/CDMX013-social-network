@@ -58,32 +58,57 @@ export const Wall = () => {
       console.log(post);
 
       if (auth.currentUser.uid === post.uid) {
-        const edit = document.createElement('button');
-        edit.textContent = 'edit';
+        const edit = document.createElement('img');
+        edit.src = './img/outline_edit_white_24dp.png';
         edit.classList.add = 'buttonEd';
 
+        const deletePosts = document.createElement('img');
+        deletePosts.src = './img/outline_delete_white_24dp.png';
+        deletePosts.classList.add = 'buttonD';
+        containerPost.append(edit, deletePosts);
         edit.addEventListener('click', () => {
-          postContent.classList.add ('redit');
-          titleT.classList.add ('redit');
+          const saveEditButton = document.createElement('button');
+          saveEditButton.classList.add = 'buttonSave';
+          saveEditButton.textContent = 'Save';
+
+          const cancelEditButton = document.createElement('button');
+          cancelEditButton.classList.add = 'buttonCancel';
+          cancelEditButton.textContent = 'Cancel';
+
+          containerPost.append(saveEditButton, cancelEditButton);
+
+          postContent.classList.add('redit');
+          titleT.classList.add('redit');
+
           console.log('USER:', auth.currentUser.uid);
           console.log(doc.id, post);
+
           postContent.removeAttribute('readonly');
           titleT.removeAttribute('readonly');
-          //          editPost(doc.id, 'hola', 'adiós');
-        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
-        });
-        containerPost.append(edit);
-      }
-      if (auth.currentUser.uid === post.uid) {
-        const deletePosts = document.createElement('button');
-        deletePosts.textContent = 'delete';
-        deletePosts.classList.add = 'buttonD';
+          edit.style.display = 'none';
+          deletePosts.style.display = 'none';
 
+          saveEditButton.addEventListener('click', () => {
+            containerPost.append(edit);
+            containerPost.append(deletePosts);
+            editPost(doc.id, postContent.value, titleT.value);
+          });
+
+          cancelEditButton.addEventListener('click', async () => {
+            containerPost.append(edit);
+            containerPost.append(deletePosts);
+            editPost(doc.id, postContent.value, titleT.value);
+          });
+          // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+        });
         deletePosts.addEventListener('click', async () => {
           await deletePost(doc.id);
-        });
-        containerPost.append(deletePosts);
+        }); //
       }
+
+      /* edit.addEventListener('click', () => {
+        deletePosts.style.display = 'none';
+      }); */
     });
   });
 
