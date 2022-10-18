@@ -41,7 +41,9 @@ export const Wall = () => {
       console.log(doc.id, '=>', doc.data());
       const post = doc.data();
       // creo que aquí va lo de div, pero entonces me confundí con el conteinerPost, no sería lo mismo?
-      const div1 = document.createElement('div');
+
+      const papaPost = document.createElement('article');
+      papaPost.classList.add = 'article';
       const titleT = document.createElement('textarea');
       titleT.setAttribute('readonly', true);
       titleT.textContent = post.title;
@@ -52,11 +54,6 @@ export const Wall = () => {
       postContent.classList.add('PostView');
       containerPost.classList.add('container');
 
-      // aquí se une o más abajo?
-      containerPost.append(titleT, postContent);
-
-      console.log(post);
-
       if (auth.currentUser.uid === post.uid) {
         const edit = document.createElement('img');
         edit.src = './img/outline_edit_white_24dp.png';
@@ -65,7 +62,9 @@ export const Wall = () => {
         const deletePosts = document.createElement('img');
         deletePosts.src = './img/outline_delete_white_24dp.png';
         deletePosts.classList.add = 'buttonD';
-        containerPost.append(edit, deletePosts);
+
+        papaPost.append(titleT, postContent, edit, deletePosts);
+
         edit.addEventListener('click', () => {
           const saveEditButton = document.createElement('button');
           saveEditButton.classList.add = 'buttonSave';
@@ -75,40 +74,39 @@ export const Wall = () => {
           cancelEditButton.classList.add = 'buttonCancel';
           cancelEditButton.textContent = 'Cancel';
 
-          containerPost.append(saveEditButton, cancelEditButton);
-
           postContent.classList.add('redit');
           titleT.classList.add('redit');
-
-          console.log('USER:', auth.currentUser.uid);
-          console.log(doc.id, post);
 
           postContent.removeAttribute('readonly');
           titleT.removeAttribute('readonly');
           edit.style.display = 'none';
           deletePosts.style.display = 'none';
 
+          papaPost.append(saveEditButton, cancelEditButton);
+
           saveEditButton.addEventListener('click', () => {
-            containerPost.append(edit);
-            containerPost.append(deletePosts);
+            papaPost.append(edit, deletePosts);
             editPost(doc.id, postContent.value, titleT.value);
           });
 
           cancelEditButton.addEventListener('click', async () => {
-            containerPost.append(edit);
-            containerPost.append(deletePosts);
-            editPost(doc.id, postContent.value, titleT.value);
+            postContent.removeAttribute('readonly');
+            titleT.removeAttribute('readonly');
+            edit.style.display = 'block';
+            deletePosts.style.display = 'block';
+            papaPost.removeChild(saveEditButton);
+            papaPost.removeChild(cancelEditButton);
+            /* Aqui va la función de cancelar */
           });
-          // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
         });
         deletePosts.addEventListener('click', async () => {
           await deletePost(doc.id);
-        }); //
+        });
+      } else {
+        papaPost.append(titleT, postContent);
       }
 
-      /* edit.addEventListener('click', () => {
-        deletePosts.style.display = 'none';
-      }); */
+      containerPost.append(papaPost);
     });
   });
 
