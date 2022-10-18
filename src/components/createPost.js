@@ -6,8 +6,8 @@ export const createPost = () => {
   const div = document.createElement('div');
   const input = document.createElement('input');
   const inputT = document.createElement('input');
-  const send = document.createElement('button');
-  send.textContent = 'send';
+  const send = document.createElement('img');
+  send.src = './img/outline_send_white_24dp.png';
   send.classList.add('send');
   input.classList.add('write');
   input.placeholder = 'Write your post';

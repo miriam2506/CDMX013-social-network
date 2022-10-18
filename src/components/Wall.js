@@ -58,8 +58,8 @@ export const Wall = () => {
       console.log(post);
 
       if (auth.currentUser.uid === post.uid) {
-        const edit = document.createElement('button');
-        edit.textContent = 'edit';
+        const edit = document.createElement('img');
+        edit.src = './img/outline_edit_white_24dp.png';
         edit.classList.add = 'buttonEd';
 
         edit.addEventListener('click', () => {
@@ -68,13 +68,19 @@ export const Wall = () => {
           postContent.removeAttribute('readonly');
           titleT.removeAttribute('readonly');
           //          editPost(doc.id, 'hola', 'adiós');
-        // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+          // document.getElementsByClassName('WallView').setAttribute('readOnly', false);
+          const saveEditButton = document.createElement('button');
+          saveEditButton.setAttribute('class', 'saveEdition');
+          saveEditButton.innerHTML = 'Save';
+          const cancelEditButton = document.createElement('button');
+          cancelEditButton.setAttribute('class', 'cancelEdition');
+          cancelEditButton.innerHTML = 'Cancel';
         });
         containerPost.append(edit);
       }
       if (auth.currentUser.uid === post.uid) {
-        const deletePosts = document.createElement('button');
-        deletePosts.textContent = 'delete';
+        const deletePosts = document.createElement('img');
+        deletePosts.src = './img/outline_delete_white_24dp.png';
         deletePosts.classList.add = 'buttonD';
 
         deletePosts.addEventListener('click', async () => {
