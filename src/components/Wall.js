@@ -47,10 +47,10 @@ export const Wall = () => {
       const titleT = document.createElement('textarea');
       titleT.setAttribute('readonly', true);
       titleT.textContent = post.title;
-      titleT.classList.add('titleT');
       const postContent = document.createElement('textarea');
       postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
+      titleT.classList.add('titleT');
       postContent.classList.add('PostView');
       containerPost.classList.add('container');
 
@@ -81,7 +81,6 @@ export const Wall = () => {
           titleT.removeAttribute('readonly');
           edit.style.display = 'none';
           deletePosts.style.display = 'none';
-
           papaPost.append(saveEditButton, cancelEditButton);
 
           saveEditButton.addEventListener('click', () => {
@@ -90,12 +89,16 @@ export const Wall = () => {
           });
 
           cancelEditButton.addEventListener('click', async () => {
-            postContent.removeAttribute('readonly');
-            titleT.removeAttribute('readonly');
-            edit.style.display = 'block';
-            deletePosts.style.display = 'block';
+            titleT.setAttribute('readonly', true);
+            postContent.setAttribute('readonly', true);
+            edit.style.display = 'inline';
+            deletePosts.style.display = 'inline';
+            titleT.classList.remove('redit');
+            postContent.classList.remove('redit');
             papaPost.removeChild(saveEditButton);
             papaPost.removeChild(cancelEditButton);
+
+            papaPost.append(titleT, postContent, edit, deletePosts);
             /* Aqui va la función de cancelar */
           });
         });
