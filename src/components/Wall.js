@@ -10,21 +10,21 @@ export const Wall = () => {
   const div = document.createElement('div'); // Contenedor principal
   div.classList.add('containerWall');
 
-  const titleW = document.createElement('h2');
-  titleW.textContent = 'MangaReads';
-  titleW.classList.add('titleW');
+  const mainTitle = document.createElement('h2');
+  mainTitle.textContent = 'MangaReads';
+  mainTitle.classList.add('mainTitle');
 
-  const title2W = document.createElement('h3');
-  title2W.textContent = 'まんが';
-  title2W.classList.add('title2W');
+  const japaneseTitle = document.createElement('h3');
+  japaneseTitle.textContent = 'まんが';
+  japaneseTitle.classList.add('japaneseTitle');
 
-  const textIntroW = document.createElement('h4');
-  textIntroW.textContent = 'What is up!';
-  textIntroW.classList.add('textIntroW');
+  const textIntroWall = document.createElement('h4');
+  textIntroWall.textContent = 'What is up!';
+  textIntroWall.classList.add('textIntroWall');
 
   const buttonSignOut = document.createElement('button');
   buttonSignOut.textContent = 'Sign Out';
-  buttonSignOut.classList.add('buttonS');
+  buttonSignOut.classList.add('buttonSignOut');
   const containerPost = document.createElement('div');
   buttonSignOut.addEventListener('click', () => {
     //  onNavigate('/'); // Sign-out successful.
@@ -44,26 +44,26 @@ export const Wall = () => {
 
       const papaPost = document.createElement('article');
       papaPost.classList.add = 'article';
-      const titleT = document.createElement('textarea');
-      titleT.setAttribute('readonly', true);
-      titleT.textContent = post.title;
+      const titlePost = document.createElement('textarea');
+      titlePost.setAttribute('readonly', true);
+      titlePost.textContent = post.title;
       const postContent = document.createElement('textarea');
       postContent.setAttribute('readonly', true);
       postContent.textContent = post.message;
-      titleT.classList.add('titleT');
+      titlePost.classList.add('titlePost');
       postContent.classList.add('PostView');
       containerPost.classList.add('container');
 
       if (auth.currentUser.uid === post.uid) {
         const edit = document.createElement('img');
         edit.src = './img/outline_edit_white_24dp.png';
-        edit.classList.add = 'buttonEd';
+        edit.classList.add = 'buttonEdit';
 
         const deletePosts = document.createElement('img');
         deletePosts.src = './img/outline_delete_white_24dp.png';
-        deletePosts.classList.add = 'buttonD';
+        deletePosts.classList.add = 'buttonDelete';
 
-        papaPost.append(titleT, postContent, edit, deletePosts);
+        papaPost.append(titlePost, postContent, edit, deletePosts);
 
         edit.addEventListener('click', () => {
           const saveEditButton = document.createElement('button');
@@ -74,33 +74,33 @@ export const Wall = () => {
           cancelEditButton.classList.add = 'buttonCancel';
           cancelEditButton.textContent = 'Cancel';
 
-          postContent.classList.add('redit');
-          titleT.classList.add('redit');
+          postContent.classList.add('reditPostAndTitle');
+          titlePost.classList.add('reditPostAndTitle');
 
           postContent.removeAttribute('readonly');
-          titleT.removeAttribute('readonly');
+          titlePost.removeAttribute('readonly');
           edit.style.display = 'none';
           deletePosts.style.display = 'none';
           papaPost.append(saveEditButton, cancelEditButton);
 
           saveEditButton.addEventListener('click', () => {
             papaPost.append(edit, deletePosts);
-            editPost(doc.id, postContent.value, titleT.value);
+            editPost(doc.id, postContent.value, titlePost.value);
           });
 
           cancelEditButton.addEventListener('click', async () => {
-            titleT.setAttribute('readonly', true);
-            titleT.value = post.title;
+            titlePost.setAttribute('readonly', true);
+            titlePost.value = post.title;
             postContent.setAttribute('readonly', true);
-            postContent.value = post.messag
+            postContent.value = post.message;
             edit.style.display = 'inline';
             deletePosts.style.display = 'inline';
-            titleT.classList.remove('redit');
-            postContent.classList.remove('redit');
+            titlePost.classList.remove('reditPostAndTitle');
+            postContent.classList.remove('reditPostAndTitle');
             papaPost.removeChild(saveEditButton);
             papaPost.removeChild(cancelEditButton);
 
-            papaPost.append(titleT, postContent, edit, deletePosts);
+            papaPost.append(titlePost, postContent, edit, deletePosts);
             /* Aqui va la función de cancelar */
           });
         });
@@ -108,14 +108,14 @@ export const Wall = () => {
           await deletePost(doc.id);
         });
       } else {
-        papaPost.append(titleT, postContent);
+        papaPost.append(titlePost, postContent);
       }
 
       containerPost.append(papaPost);
     });
   });
 
-  div.append(titleW, title2W, textIntroW, buttonSignOut, containerPost, createPost());
+  div.append(mainTitle, japaneseTitle, textIntroWall, buttonSignOut, containerPost, createPost());
 
   return div;
 };
