@@ -90,7 +90,9 @@ export const Wall = () => {
 
           cancelEditButton.addEventListener('click', async () => {
             titleT.setAttribute('readonly', true);
+            titleT.value = post.title;
             postContent.setAttribute('readonly', true);
+            postContent.value = post.messag
             edit.style.display = 'inline';
             deletePosts.style.display = 'inline';
             titleT.classList.remove('redit');
