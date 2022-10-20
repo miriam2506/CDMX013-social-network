@@ -40,7 +40,6 @@ export const Wall = () => {
     posts.forEach((doc) => {
       console.log(doc.id, '=>', doc.data());
       const post = doc.data();
-      // creo que aquí va lo de div, pero entonces me confundí con el conteinerPost, no sería lo mismo?
 
       const papaPost = document.createElement('article');
       papaPost.classList.add = 'article';
@@ -101,7 +100,6 @@ export const Wall = () => {
             papaPost.removeChild(cancelEditButton);
 
             papaPost.append(titlePost, postContent, edit, deletePosts);
-            /* Aqui va la función de cancelar */
           });
         });
         deletePosts.addEventListener('click', async () => {
