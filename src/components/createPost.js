@@ -9,9 +9,9 @@ export const createPost = () => {
   const send = document.createElement('img');
   send.src = './img/outline_send_white_24dp.png';
   send.classList.add('send');
-  input.classList.add('write');
+  input.classList.add('writePost');
   input.placeholder = 'Write your post';
-  inputT.classList.add('writeT');
+  inputT.classList.add('writeTitle');
   inputT.placeholder = 'Title';
   onAuthStateChanged(auth, (user) => {
     if (user) {

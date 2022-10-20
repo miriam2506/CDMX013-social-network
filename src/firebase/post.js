@@ -5,9 +5,9 @@ import { app } from './config.js';
 
 const db = getFirestore(app);
 
-export const savePost = async (titleP, textPost, uid) => {
+export const savePost = async (titlePost, textPost, uid) => {
   const docRef = await addDoc(collection(db, 'post'), {
-    title: titleP,
+    title: titlePost,
     message: textPost,
     uid,
   });

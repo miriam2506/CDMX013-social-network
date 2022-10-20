@@ -6,13 +6,13 @@ export const Welcome = () => {
   const div = document.createElement('div'); // Contenedor principal
   div.classList.add('container-welcome');
 
-  const title = document.createElement('h2');
-  title.textContent = 'MangaReads';
-  title.classList.add('title');
+  const mainTitle = document.createElement('h2');
+  mainTitle.textContent = 'MangaReads';
+  mainTitle.classList.add('welcomeMainTitle');
 
-  const title2 = document.createElement('h3');
-  title2.textContent = 'まんが';
-  title2.classList.add('title2');
+  const japaneseTitle = document.createElement('h3');
+  japaneseTitle.textContent = 'まんが';
+  japaneseTitle.classList.add('welcomeJapaneseTitle');
 
   const textIntro = document.createElement('h4');
   textIntro.textContent = 'Welcome to a place to share information, exchange ideas and talk about your favourite Japanese manga series.';
@@ -20,14 +20,14 @@ export const Welcome = () => {
 
   const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Login';
-  buttonLogin.classList.add('buttonL');
+  buttonLogin.classList.add('buttonLogin');
 
   const inputEmail = document.createElement('input');
-  inputEmail.classList.add('inputOne');
+  inputEmail.classList.add('inputEmail');
   inputEmail.placeholder = 'email';
 
   const inputPassword = document.createElement('input');
-  inputPassword.classList.add('inputTwo');
+  inputPassword.classList.add('inputPassword');
   inputPassword.placeholder = 'password';
   inputPassword.setAttribute('type', 'password');
 
@@ -59,8 +59,7 @@ export const Welcome = () => {
     signEmailPassword(mail, password);
   });
 
-  
-sectionSpanParr.addEventListener('click', () => {
+  sectionSpanParr.addEventListener('click', () => {
     onNavigate('/register');
   });
 
@@ -68,7 +67,7 @@ sectionSpanParr.addEventListener('click', () => {
     loginGoogle();
   });
 
-  div.append(title2, title, inputEmail, inputPassword, buttonLogin, textIntro, sectionDivision, sectionSingUpText, sectionSpanParr, liner1, liner2, buttonGoogle);
+  div.append(japaneseTitle, mainTitle, inputEmail, inputPassword, buttonLogin, textIntro, sectionDivision, sectionSingUpText, sectionSpanParr, liner1, liner2, buttonGoogle);
 
   return div;
 };

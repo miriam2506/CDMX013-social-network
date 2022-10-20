@@ -4,41 +4,37 @@ import { onNavigate } from '../main.js';
 
 export const Register = () => {
   const div = document.createElement('div');
-  const title = document.createElement('h2');
-  const title2 = document.createElement('h3');
+  const mainTitle = document.createElement('h2');
+  const japaneseTitle = document.createElement('h3');
   const subtitle = document.createElement('h4');
   const buttonRegister = document.createElement('button');
   const buttonBack = document.createElement('button');
-  const inputEmail = document.createElement('input');
-  const inputPassword = document.createElement('input');
-  // const inputConfirm = document.createElement('input');
-  inputEmail.placeholder = 'email';
-  inputPassword.placeholder = 'password';
-  // inputConfirm.placeholder = 'confirm password';
+  const inputRegisterEmail = document.createElement('input');
+  const inputRegisterPassword = document.createElement('input');
+  inputRegisterEmail.placeholder = 'email';
+  inputRegisterPassword.placeholder = 'password';
 
-  inputEmail.classList.add('inputOneE');
-  inputPassword.classList.add('inputTwoP');
-  inputPassword.setAttribute('type', 'password');
-  /* inputConfirm.classList.add('inputThree');
-  inputConfirm.setAttribute('type', 'password'); */
+  inputRegisterEmail.classList.add('inputRegisterEmail');
+  inputRegisterPassword.classList.add('inputRegisterPassword');
+  inputRegisterPassword.setAttribute('type', 'password');
   div.classList.add('container-welcome');
   buttonRegister.textContent = 'Register';
-  buttonRegister.classList.add('buttonR');
+  buttonRegister.classList.add('buttonRegister');
   subtitle.textContent = 'CREATE AN ACCOUNT';
   subtitle.classList.add('subtitle');
   buttonBack.textContent = 'Back';
-  buttonBack.classList.add('buttonB');
-  title.textContent = 'MangaReads';
-  title.classList.add('title');
-  title2.textContent = 'まんが';
-  title2.classList.add('title2');
+  buttonBack.classList.add('buttonBack');
+  mainTitle.textContent = 'MangaReads';
+  mainTitle.classList.add('registerMainTitle');
+  japaneseTitle.textContent = 'まんが';
+  japaneseTitle.classList.add('registerJapaneseTitle');
 
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
 
   buttonRegister.addEventListener('click', () => {
-    saveUser(inputEmail.value, inputPassword.value).then((userCredential) => {
+    saveUser(inputRegisterEmail.value, inputRegisterPassword.value).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       // console.log('ya se creo');
@@ -51,7 +47,7 @@ export const Register = () => {
         // ..
       });
   });
-  div.append(title2, title, subtitle, inputEmail, inputPassword, /* inputConfirm */ buttonRegister, buttonBack);
+  div.append(japaneseTitle, mainTitle, subtitle, inputRegisterEmail, inputRegisterPassword, buttonRegister, buttonBack);
 
   return div;
 };
